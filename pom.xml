@@ -49,7 +49,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>docker_test</finalName>
+		<finalName>dockerTest</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -18,4 +18,9 @@ public class Test_Controller {
 		return "Test-2";
 	}
 
+	@GetMapping("/test/3")
+	public String test_3() {
+		return "Test-3g";
+	}
+
 }

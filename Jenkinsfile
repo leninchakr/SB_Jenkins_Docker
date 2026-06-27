@@ -16,25 +16,25 @@ pipeline {
 
         stage('Build JAR') {
             steps {
-                bat 'mvn clean package -DskipTests'
+                sh 'mvn clean package -DskipTests'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t sb-dock-test:latest .'
+                sh 'docker build -t sb-dock-test:latest .'
             }
         }
 
         stage('Stop Old Container') {
             steps {
-                bat 'docker rm -f sb-dock || exit 0'
+                sh 'docker rm -f sb-dock || true'
             }
         }
 
         stage('Run Container') {
             steps {
-                bat 'docker run -d -p 9091:9091 --name sb-dock sb-dock-test:latest'
+                sh 'docker run -d -p 9091:9091 --name sb-dock sb-dock-test:latest'
             }
         }
     }
